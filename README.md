@@ -7,4 +7,5 @@ This program could straightly download the image of a single-image instagram pub
 * datetime
 * PIL
 
+---
 `$ python ig_image.py`
