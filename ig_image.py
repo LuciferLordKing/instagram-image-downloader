@@ -13,7 +13,7 @@ formats = [
 ]
 
 def getUrl(link):
-    proxy_ip = input('Proxy [None]: ')
+    proxy_ip = input('proxy [None]: ')
     if proxy_ip == '':
         http = ProxyManager(proxy_ip, maxsize = 10)
     else:
@@ -39,4 +39,6 @@ if __name__ == '__main__':
 
     filename = input(f'file name [ig_downloaded_pic-{str(datetime.now())}.jpg]: ')
     savePic(pic_url, filename)
-    Image.open(filename).show()
+
+    if input('open saved image [Y/n]: ') == 'Y':
+        Image.open(filename).show()
