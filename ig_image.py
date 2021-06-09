@@ -14,7 +14,7 @@ formats = [
 
 def getUrl(link):
     proxy_ip = input('proxy [None]: ')
-    if proxy_ip == '':
+    if proxy_ip != '':
         http = ProxyManager(proxy_ip, maxsize = 10)
     else:
         http = PoolManager()
@@ -27,9 +27,10 @@ def getUrl(link):
 def savePic(pic_url, filename):
     if filename == '':
         filename = f'ig_downloaded_pic-{str(datetime.now())}.jpg'
-    elif filename[len(filename) - 4:len(filename)] not in formats or filename[len(filename) - 5:len(filename)] != '.jpeg':
+    elif filename[len(filename) - 4:len(filename)] not in formats and filename[len(filename) - 5:len(filename)] != '.jpeg':
         filename += '.jpg'
     urlretrieve(pic_url, filename = filename)
+    return filename
 
 if __name__ == '__main__':
 
@@ -38,7 +39,7 @@ if __name__ == '__main__':
     print(pic_url)
 
     filename = input(f'file name [ig_downloaded_pic-{str(datetime.now())}.jpg]: ')
-    savePic(pic_url, filename)
+    filename = savePic(pic_url, filename)
 
     if input('open saved image [Y/n]: ') == 'Y':
         Image.open(filename).show()
