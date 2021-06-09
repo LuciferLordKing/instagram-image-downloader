@@ -5,7 +5,7 @@ This program could straightly download the image of a single-image instagram pub
 * urllib
 * urllib3
 * datetime
-* PIL
+* PIL <sub><sup>(optional)</sup></sub>
 
 ---
 `$ python ig_image.py`
